@@ -1,0 +1,34 @@
+SELECT
+    m.ID_GOLD_CIDADAO AS ID,
+    m.NM_CIDADAO AS NOME,
+    p.DT_NASC_PREF AS DATA_PREFEITURA,
+    r.DT_NASCIMENTO AS DATA_RECEITA,
+    CASE
+        WHEN TO_DATE(
+            TRIM(p.DT_NASC_PREF)
+            DEFAULT NULL ON CONVERSION ERROR,
+            'FXMM/DD/YYYY'
+        ) = TO_DATE(
+            TRIM(r.DT_NASCIMENTO)
+            DEFAULT NULL ON CONVERSION ERROR,
+            'FXDD/MM/YYYY'
+        )
+        THEN 'DATAS IGUAIS'
+        ELSE 'DATA AUSENTE, INVALIDA OU DIVERGENTE'
+    END AS RESULTADO_VALIDACAO
+FROM T_MDM_CIDADAO m
+JOIN T_SRC_PREFEITURA_CIDADAO p
+    ON m.NR_CPF_CIDADAO =
+       TO_NUMBER(
+           REPLACE(
+               REPLACE(
+                   REPLACE(TRIM(p.CPF_PREFEITURA), '.', ''),
+                   '-', ''
+               ),
+               '/', ''
+           )
+       )
+LEFT JOIN T_SRC_RECEITA_FEDERAL r
+    ON p.CPF_PREFEITURA = r.CPF_RECEITA
+WHERE m.ID_GOLD_CIDADAO IN (1, 9, 28, 58, 76, 78)
+ORDER BY m.ID_GOLD_CIDADAO;

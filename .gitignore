@@ -1,0 +1,13 @@
+# Dados originais e backups cadastrais
+*.csv
+*.xlsx
+*.xls
+*BACKUP*
+# Configuração local e credenciais
+.env
+.env.*
+*.ora
+*.log
+# Artefatos de sistema
+.DS_Store
+Thumbs.db
