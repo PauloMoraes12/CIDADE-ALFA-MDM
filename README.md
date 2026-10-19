@@ -2,6 +2,25 @@
 
 Projeto acadêmico de integração, padronização e consolidação de dados cadastrais de cidadãos, desenvolvido com **Oracle Database, SQL e PL/SQL**.
 
+## Resultados do projeto
+
+O processamento MDM V2 consolidou informações de duas fontes
+cadastrais simuladas, aplicando regras de padronização,
+integração e identificação de divergências.
+
+| Indicador | Resultado |
+|---|---:|
+| Cidadãos processados | 100 |
+| Regras de negócio | 12 |
+| Registros atualizados | 100 |
+| Novos registros inseridos | 0 |
+| Divergências identificadas | 33 |
+| Erros de processamento | 0 |
+
+O processamento utiliza SQL e PL/SQL no Oracle Database,
+com estratégia de atualização que preserva o identificador
+do registro mestre (Golden Record).
+
 ## Origem dos dados e publicação responsável
 
 Projeto acadêmico desenvolvido na FIAP a partir de arquivos CSV disponibilizados pela instituição para um **cenário simulado** da Cidade Alfa. As referências a Prefeitura Municipal e Receita Federal são parte desse cenário didático, não integrações com sistemas oficiais.
