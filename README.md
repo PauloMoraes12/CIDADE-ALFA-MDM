@@ -21,6 +21,24 @@ O processamento utiliza SQL e PL/SQL no Oracle Database,
 com estratégia de atualização que preserva o identificador
 do registro mestre (Golden Record).
 
+
+## Arquitetura do processamento MDM
+
+```mermaid
+flowchart TD
+    A["Prefeitura Municipal<br/>T_SRC_PREFEITURA_CIDADAO"]
+    B["Receita Federal<br/>T_SRC_RECEITA_FEDERAL"]
+
+    A --> C["Processamento MDM V2<br/>SQL e PL/SQL"]
+    B --> C
+
+    C --> D["Padronização e integração<br/>12 regras de negócio"]
+    D --> E["T_MDM_CIDADAO<br/>Golden Record"]
+    E --> F["Validações de qualidade<br/>e identificação de divergências"]
+    F --> G["Views SQL<br/>Indicadores consolidados"]
+```
+
+
 ## Origem dos dados e publicação responsável
 
 Projeto acadêmico desenvolvido na FIAP a partir de arquivos CSV disponibilizados pela instituição para um **cenário simulado** da Cidade Alfa. As referências a Prefeitura Municipal e Receita Federal são parte desse cenário didático, não integrações com sistemas oficiais.
