@@ -81,6 +81,56 @@ A solução aplica 12 regras de negócio para padronizar os dados, comparar info
 
 O processamento percorre os registros da Prefeitura, consulta os dados correspondentes da Receita Federal e aplica as regras de negócio antes de atualizar ou inserir informações na tabela mestre.
 
+
+## Como executar o projeto
+
+### Pré-requisitos
+
+- Oracle Database com acesso a um esquema de desenvolvimento.
+- Oracle SQL Developer ou outra ferramenta compatível.
+- Tabelas de origem e tabela mestre previamente criadas.
+- Dados de teste autorizados para utilização.
+
+### Preparação do ambiente
+
+O projeto utiliza três tabelas principais:
+
+- `T_SRC_PREFEITURA_CIDADAO`
+- `T_SRC_RECEITA_FEDERAL`
+- `T_MDM_CIDADAO`
+
+Os dados originais utilizados na atividade acadêmica
+não estão incluídos neste repositório público.
+
+Antes da execução, é necessário preparar as estruturas
+e disponibilizar dados de teste compatíveis com os
+campos esperados pelos scripts.
+
+### Processamento
+
+1. Conferir as estruturas das tabelas e a sequência
+   `SQ_MDM_CIDADAO`.
+2. Revisar o script
+   `script_carrega_dados_T_MDM_CIDADAO_v2_final.sql`.
+3. Executar o processamento em ambiente de testes.
+4. Executar as consultas de
+   `validacoes_T_MDM_CIDADAO_v2.sql`.
+5. Criar e consultar as views analíticas disponíveis
+   na pasta `SQL/`.
+
+**Atenção:** o script principal foi utilizado na
+execução definitiva com `COMMIT`. Antes de executá-lo
+novamente, revise o controle transacional e mantenha
+um backup dos dados.
+
+### Limitações de reprodução
+
+Este repositório apresenta o processamento, as regras
+de negócio e os resultados documentados. A reprodução
+integral depende da preparação do ambiente Oracle,
+das estruturas de banco necessárias e de dados de
+teste compatíveis.
+
 ## Regras de negócio
 
 O projeto contempla 12 regras:
@@ -100,15 +150,15 @@ O projeto contempla 12 regras:
 
 ## Resultados dos testes
 
-| Indicador | Resultado |
-|---|---:|
-| Registros processados | 100 |
-| Registros atualizados | 100 |
-| Registros inseridos | 0 |
-| Erros de execução | 0 |
-| Cidadãos com divergências | 33 |
-| Divergências de nomes | 27 |
-| Registros com data de nascimento nula | 6 |
+A validação detalhada identificou:
+
+- 27 divergências de nomes entre as fontes.
+- 6 registros sem data de nascimento.
+- 33 cidadãos com indicador de divergência.
+
+Os resultados gerais do processamento estão
+apresentados na seção **Resultados do projeto**.
+
 
 A execução de teste realizada em **17/10/2026** foi concluída com sucesso, utilizando `ROLLBACK` para não persistir as alterações.
 
@@ -141,7 +191,15 @@ O projeto inclui, na versão local completa:
 - `RELATORIO_TECNICO_MDM_V2.md`: documentação técnica consolidada.
 - `script_carrega_dados_T_MDM_CIDADAO_v2_final.sql`: script principal.
 - `validacoes_T_MDM_CIDADAO_v2.sql`: histórico das validações.
-- Pasta `EVIDENCIAS/`: capturas dos resultados e testes realizados.
+
+As capturas de tela originais permanecem armazenadas
+na versão local do projeto. A pasta `EVIDENCIAS/`
+deste repositório público contém apenas a documentação
+sobre essas evidências, sem as imagens originais.
+
+Os backups cadastrais também não foram publicados,
+por motivos de privacidade e direitos de utilização.
+
 
 ### Backups e evidências da execução definitiva
 
