@@ -39,6 +39,17 @@ flowchart TD
 ```
 
 
+## Competências técnicas demonstradas
+
+- **SQL:** consultas, JOINs, agregações, validações e criação de views.
+- **PL/SQL:** desenvolvimento de procedimentos de processamento e aplicação de regras de negócio.
+- **Master Data Management (MDM):** integração de fontes cadastrais e consolidação de registros mestres.
+- **Qualidade de dados:** identificação de divergências, tratamento de valores nulos e padronização cadastral.
+- **Golden Record:** manutenção de registros consolidados com preservação do identificador mestre.
+- **Análise de dados:** construção de indicadores por faixa etária, escolaridade e estado civil.
+- **Documentação técnica:** organização de scripts, registro de validações e relatório dos resultados.
+
+
 ## Origem dos dados e publicação responsável
 
 Projeto acadêmico desenvolvido na FIAP a partir de arquivos CSV disponibilizados pela instituição para um **cenário simulado** da Cidade Alfa. As referências a Prefeitura Municipal e Receita Federal são parte desse cenário didático, não integrações com sistemas oficiais.
