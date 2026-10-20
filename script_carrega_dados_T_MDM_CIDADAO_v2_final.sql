@@ -27,7 +27,7 @@ DECLARE
    v_rec_receita_vazio T_SRC_RECEITA_FEDERAL%ROWTYPE; -- Declara um registro auxiliar com os campos inicialmente nulos
 
 	-- Variavel que converte a data de nascimento da prefeitura para o tipo de dado number
-    v_dt_nasc_pref 		DATE := NULL;
+    v_dt_nasc_pref 	    DATE := NULL;
     v_dt_nasc_receita DATE := NULL; -- Armazena a data de nascimento convertida da Receita Federal
 	
     -- -- Contadores de auditoria ------------------------------
